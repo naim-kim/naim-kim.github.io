@@ -1,52 +1,68 @@
 ---
 layout: post
-title: "Java Mini CRUD Project: Café Menu Management"
+title: "Java Cafe CRUD Project: CLI Console Version"
 date: 2025-07-18
 categories: [Java, Projects, CRUD]
+tags: [Java, CLI, OOP]
 ---
 
-## ☕️ Java Café Menu Management Project
+## ☕ Java Café Menu CRUD – CLI Edition (Part 1 of 3)
 
-This post walks you through building a simple Java CLI (Command Line Interface) application to manage a café menu. It supports the basic CRUD operations: **Create, Read, Update, Delete**.
+This is the **first post** in my Café CRUD project series — where I walk through building a CRUD app in **3 stages**:
+
+1. Java CLI console version (this post)
+2. Spring Boot REST API ([Part 2 here](./2025-07-19-java-cafe-menu-spring-boot.html))
+3. Spring Legacy JSP app ([Part 3 here](./2025-07-20-java-cafe-crud-spring-legacy.html))
+
+In this version, we manage a menu system using simple console input. The goal: keep it clean, modular, and readable using OOP principles.
+
+---
 
 ### 📌 Project Features
 
-- Add a new menu item
-- View all menu items
-- Edit a menu item
+- Create a new menu item
+- View all items
+- Update an existing item
 - Delete a menu item
-- Exit the program
+- Loop until user exits
 
 ---
 
 ### 🛠️ Tech Stack
 
-- Language: **Java**
-- Input: **Scanner**
-- Data Structure: **ArrayList**
+- Java 17
+- Console input with `Scanner`
+- `ArrayList` for dynamic data
+- Clean OOP separation: `Main`, `Menu`, `MenuCRUD`
 
 ---
 
-### 📁 File Structure
+### 📁 Folder Structure
 
-All the logic is written in a single Java file for simplicity. Later, you can refactor it into:
+```
 
-- `MenuItem.java` (for the model)
-- `MenuService.java` (for business logic)
-- `MenuApp.java` (for main loop)
+src/
+├── Main.java         // Entry point
+├── Menu.java         // Model class
+└── MenuCRUD.java     // Service for handling menu logic
+
+```
 
 ---
 
-### 💡 Sample Code (Monolithic Version)
+### 🧱 Code Highlights
+
+#### 🔹 Menu.java (Model)
 
 ```java
-import java.util.*;
+public class Menu {
+    private String name;
+    private String description;
+    private String category;
+    private int price;
+    private int calories;
 
-class MenuItem {
-    String name, description, category;
-    int price, calories;
-
-    MenuItem(String name, String description, String category, int price, int calories) {
+    public Menu(String name, String description, String category, int price, int calories) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -56,18 +72,25 @@ class MenuItem {
 
     @Override
     public String toString() {
-        return String.format(
-            "[%s] %s | %s | %,d원 | %dkcal",
-            category, name, description, price, calories
-        );
+        return String.format("[%s] %s | %s | %,d원 | %dkcal", category, name, description, price, calories);
     }
+
+    // Getters/Setters omitted for brevity
 }
+```
 
-public class MenuApp {
-    static List<MenuItem> menuList = new ArrayList<>();
-    static Scanner sc = new Scanner(System.in);
+---
 
-    public static void main(String[] args) {
+#### 🔹 MenuCRUD.java (Service)
+
+```java
+import java.util.*;
+
+public class MenuCRUD {
+    private final List<Menu> menuList = new ArrayList<>();
+    private final Scanner sc = new Scanner(System.in);
+
+    public void run() {
         while (true) {
             System.out.println("\n카페 메뉴 관리 > 1. 추가  2. 수정  3. 목록  4. 삭제  0. 종료");
             int choice = Integer.parseInt(sc.nextLine());
@@ -85,7 +108,7 @@ public class MenuApp {
         }
     }
 
-    static void addMenu() {
+    private void addMenu() {
         System.out.print("메뉴 이름: ");
         String name = sc.nextLine();
         System.out.print("설명: ");
@@ -97,11 +120,11 @@ public class MenuApp {
         System.out.print("칼로리 (kcal): ");
         int cal = Integer.parseInt(sc.nextLine());
 
-        menuList.add(new MenuItem(name, desc, category, price, cal));
+        menuList.add(new Menu(name, desc, category, price, cal));
         System.out.println(" > 메뉴가 추가되었습니다.");
     }
 
-    static void listMenus() {
+    private void listMenus() {
         if (menuList.isEmpty()) {
             System.out.println("등록된 메뉴가 없습니다.");
         } else {
@@ -111,12 +134,12 @@ public class MenuApp {
         }
     }
 
-    static void editMenu() {
+    private void editMenu() {
         listMenus();
         System.out.print("수정할 메뉴 번호: ");
         int idx = Integer.parseInt(sc.nextLine()) - 1;
         if (idx >= 0 && idx < menuList.size()) {
-            addMenu();  // Reuse addMenu to overwrite info
+            addMenu();  // Reuse add logic
             menuList.remove(idx);
             System.out.println(" > 메뉴가 수정되었습니다.");
         } else {
@@ -124,7 +147,7 @@ public class MenuApp {
         }
     }
 
-    static void deleteMenu() {
+    private void deleteMenu() {
         listMenus();
         System.out.print("삭제할 메뉴 번호: ");
         int idx = Integer.parseInt(sc.nextLine()) - 1;
@@ -137,3 +160,25 @@ public class MenuApp {
     }
 }
 ```
+
+---
+
+#### 🔹 Main.java (Entry Point)
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        new MenuCRUD().run();
+    }
+}
+```
+
+---
+
+### ✅ Summary
+
+This CLI version of the Café Menu project gave me a solid foundation for organizing CRUD logic. With clear class separation and clean console interaction, it was a great exercise before moving into Spring-based development.
+
+➡️ [Continue to Part 2 – Spring Boot REST API](./2025-07-20-java-cafe-menu-spring-boot.html)
+
+---
