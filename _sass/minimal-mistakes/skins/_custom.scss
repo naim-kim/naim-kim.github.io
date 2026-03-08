@@ -1,20 +1,20 @@
 /* ==========================================================================
    Custom palette
    #fffefb - cream (text)
-   #31334b - slate (background)
+   #000000 - black (background)
    #657bc7 - periwinkle (secondary accent)
    #25dac4 - teal (primary accent)
    ========================================================================== */
 
 /* Colors */
-$background-color: #31334b !default;
+$background-color: #000000 !default;
 $text-color: #fffefb !default;
 $primary-color: #25dac4 !default;
 $border-color: rgba(101, 123, 199, 0.35) !default;
-$code-background-color: mix(#000, $background-color, 15%) !default;
-$code-background-color-dark: mix(#000, $background-color, 22%) !default;
-$form-background-color: mix(#000, $background-color, 15%) !default;
-$footer-background-color: mix(#000, $background-color, 35%) !default;
+$code-background-color: #0d0d0d !default;
+$code-background-color-dark: #111 !default;
+$form-background-color: #0d0d0d !default;
+$footer-background-color: #0a0a0a !default;
 $link-color: #25dac4 !default;
 $link-color-hover: #657bc7 !default;
 $link-color-visited: mix(#657bc7, $link-color, 50%) !default;
