@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Portfolio custom styles
+   ========================================================================== */
+
+/* Hero overlay - larger title, better spacing */
+.page__hero--overlay .page__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .page__hero--overlay .page__title {
+    font-size: 3.5rem;
+  }
+
+  .page__hero--overlay .page__lead {
+    font-size: 1.25rem;
+  }
+}
+
+.page__hero--overlay .page__lead {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* Feature row cards - subtle hover lift */
+.feature__wrapper .archive__item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature__wrapper .archive__item:hover {
+  transform: translateY(-2px);
+}
+
+/* Section spacing */
+#featured-projects + .feature__wrapper {
+  margin-top: 0.5em;
+}
+
+.archive__subtitle {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
+}
+
+.hr--large {
+  margin: 3em 0 2em;
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.2;
+}
+
+/* Recent posts list spacing */
+.entries-list .list__item {
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.entries-list .list__item:last-child {
+  border-bottom: none;
+}
