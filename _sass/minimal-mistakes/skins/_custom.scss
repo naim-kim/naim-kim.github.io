@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Custom palette
+   #fffefb - cream (text)
+   #31334b - slate (background)
+   #657bc7 - periwinkle (secondary accent)
+   #25dac4 - teal (primary accent)
+   ========================================================================== */
+
+/* Colors */
+$background-color: #31334b !default;
+$text-color: #fffefb !default;
+$primary-color: #25dac4 !default;
+$border-color: rgba(101, 123, 199, 0.35) !default;
+$code-background-color: mix(#000, $background-color, 15%) !default;
+$code-background-color-dark: mix(#000, $background-color, 22%) !default;
+$form-background-color: mix(#000, $background-color, 15%) !default;
+$footer-background-color: mix(#000, $background-color, 35%) !default;
+$link-color: #25dac4 !default;
+$link-color-hover: #657bc7 !default;
+$link-color-visited: mix(#657bc7, $link-color, 50%) !default;
+$masthead-link-color: $text-color !default;
+$masthead-link-color-hover: #25dac4 !default;
+$navicon-link-color-hover: rgba(101, 123, 199, 0.5) !default;
+
+/* Buttons use primary (teal) */
+$success-color: #25dac4 !default;
+$info-color: #657bc7 !default;
+
+.author__urls.social-icons i,
+.author__urls.social-icons .svg-inline--fa,
+.page__footer-follow .social-icons i,
+.page__footer-follow .social-icons .svg-inline--fa {
+  color: inherit;
+}
+
+.ais-search-box .ais-search-box--input {
+  background-color: $form-background-color;
+}
