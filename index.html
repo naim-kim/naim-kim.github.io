@@ -1,4 +1,54 @@
 ---
-layout: home
+layout: splash
 author_profile: true
+header:
+  overlay_color: "#0d1117"
+  overlay_filter: "0.3"
+  overlay_image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920
+  actions:
+    - label: "<i class='fas fa-folder-open'></i> View Projects"
+      url: "#featured-projects"
+    - label: "<i class='fas fa-pen'></i> Read Blog"
+      url: "/year-archive/"
+title: "Naim Kim"
+excerpt: "CS Student @ Handong Global University &middot; Building things that work &middot; South Korea"
+feature_row:
+  - image_path: https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&h=400&fit=crop
+    alt: "Java Cafe CRUD"
+    title: "Java Café CRUD Series"
+    excerpt: "Full-stack CRUD application built in 3 stages — CLI, Spring Boot REST API, and Spring MVC with JSP."
+    url: "/java/projects/crud/java-cafe-crud-project-cli-console-version/"
+    btn_label: "View Project"
+    btn_class: "btn--primary"
+  - image_path: https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop
+    alt: "Software development"
+    title: "More Projects"
+    excerpt: "Exploring full-stack development with Java, Spring, and modern web technologies."
+    url: "/year-archive/"
+    btn_label: "See All Posts"
+    btn_class: "btn--primary"
+  - image_path: https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop
+    alt: "Code"
+    title: "Learning in Public"
+    excerpt: "Writing about what I learn — tutorials, project walkthroughs, and tech reflections."
+    url: "/year-archive/"
+    btn_label: "Read Blog"
+    btn_class: "btn--primary"
 ---
+
+<h2 id="featured-projects" class="archive__subtitle">Featured Projects</h2>
+{% include feature_row %}
+
+<hr class="hr--large">
+
+<h2 class="archive__subtitle">Recent Posts</h2>
+{% assign recent_posts = site.posts | limit: 5 %}
+<div class="entries-list">
+  {% for post in recent_posts %}
+    {% include archive-single.html type="list" %}
+  {% endfor %}
+</div>
+
+<p style="text-align: center; margin-top: 2em;">
+  <a href="{{ '/year-archive/' | relative_url }}" class="btn btn--primary btn--large">View All Posts</a>
+</p>

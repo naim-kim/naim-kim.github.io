@@ -19,7 +19,7 @@ locale: "en-US"
 rtl: # true, false (default) # turns direction of the page into right to left for RTL languages
 title: "일단 시도해 like 펠리칸"
 title_separator: "-"
-subtitle: # site tagline that appears below site title in masthead
+subtitle: "CS Student · Building & Learning"
 name: "Naim Kim"
 description: "A blog where I jot things I learn..."
 url: "https://naim-kim.github.io"
@@ -114,13 +114,13 @@ analytics:
 author:
   name: "Naim Kim (김나임)"
   avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio: "I am a Computer Science Student at Handong Global Univeristy"
+  bio: "I am a Computer Science Student at Handong Global University"
   location: "South Korea"
   email:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "naimk5451@gmail.com"
+      url: "mailto:naimk5451@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -132,7 +132,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/naim-kim"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
@@ -140,15 +140,9 @@ author:
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/naim-kim"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -158,7 +152,7 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
-  since: "2013"
+  since: "2024"
 
 # Reading Files
 include:
