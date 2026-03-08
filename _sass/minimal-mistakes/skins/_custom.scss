@@ -1,13 +1,13 @@
 /* ==========================================================================
-   Custom palette
+   Custom palette - NO slate (#31334b), black only
    #fffefb - cream (text)
    #000000 - black (background)
    #657bc7 - periwinkle (secondary accent)
    #25dac4 - teal (primary accent)
    ========================================================================== */
 
-/* Colors */
-$background-color: #000000 !default;
+/* Colors - explicit black everywhere, no slate */
+$background-color: #000 !default;
 $text-color: #fffefb !default;
 $primary-color: #25dac4 !default;
 $border-color: rgba(101, 123, 199, 0.35) !default;
@@ -35,4 +35,10 @@ $info-color: #657bc7 !default;
 
 .ais-search-box .ais-search-box--input {
   background-color: $form-background-color;
+}
+
+/* Force black everywhere - no slate */
+html,
+body {
+  background-color: #000 !important;
 }
